@@ -32,12 +32,28 @@ def func(nums, target):
         arr = sorted(nums[(i+1):])
         ans = bin_search(element, arr)
         if ans == True:
-            return [i, nums[(i+1):].index(element)]
+            return [i, (i + 1) + nums[(i+1):].index(element)]
 
-nums = [3, 2, 4]
-target = 6
+def solution1(nums, target):
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return [i, j]
 
-ans = func(nums, target)
+def solution2(nums, target):
+    hmap = {}
+    for i in range(len(nums)):
+        element = target - nums[i]
+        if element in hmap:
+            return [i, hmap[element]]
+        else:
+            hmap.update({nums[i]:i})
+
+
+#nums = [2, 5, 5, 11]
+#target = 10
+
+#ans = solution1(nums, target)
 
 
 def main():
