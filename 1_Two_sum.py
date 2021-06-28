@@ -56,13 +56,3 @@ def solution2(nums, target):
 #ans = solution1(nums, target)
 
 
-def main():
-    n_cases = int(parse_input())
-    for i in range(n_cases):
-        n, k = [int(i) for i in parse_input().split()]
-        multiset = parse_input()
-        arr = [int(i) for i in parse_input().split()]
-        print(func(multiset, k))
-        
-if __name__ == "__main__":
-    main()
