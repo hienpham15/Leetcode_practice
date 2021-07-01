@@ -44,13 +44,12 @@ class Solution:
                         ans.append(triplet)
         
         if len(zeros) >= 3:
-            ans.append(triplet)
-            
+            ans.append([0, 0, 0])
         
         for i in range(len(negs) - 1):
             for j in range(i+1, len(negs)):
                 negs_k = -(negs[i] + negs[j])
-                if negs_k in N:
+                if negs_k in P:
                     triplet = [negs[i], negs[j], negs_k]
                     if triplet not in ans:
                         ans.append(triplet)
@@ -65,7 +64,7 @@ class Solution:
         return ans
         
 
-nums = [0]    
-ans = Solution().threeSum(nums)
+nums = [-1,0,1,2,-1,-4]    
+ans = Solution().threeSum_v2(nums)
                 
             

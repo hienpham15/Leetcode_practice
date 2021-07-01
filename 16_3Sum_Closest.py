@@ -28,7 +28,6 @@ class Solution:
                 return idx - 1
             
         
-    
     def threeSumClosest(self, nums, target: int) -> int:
         nums.sort()
         nums_len = len(nums) - 1
