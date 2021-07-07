@@ -6,13 +6,13 @@ Created on Wed Jul  7 01:27:30 2021
 @author: hienpham
 """
 class Solution:
-    def find_match(self, nums, p1, val):
+    def find_match(self, nums, p2, val):
         """
         find index of a value in nums that almost equal to val
         """
-        arr = [abs(x - val) for x in nums[p1:]]
-        idx = p1 + arr.index(min(arr))
-        return idx
+        while nums[p2] <= val:
+            p2 -= 1
+        return p2
         
 
     
@@ -28,7 +28,7 @@ class Solution:
         while i > 0:
             if nums[i - 1] < nums[i]:
                 p1 = i
-                idx = self.find_match(nums, p1, nums[i - 1])
+                idx = self.find_match(nums, p2, nums[i - 1])
                 nums[i - 1], nums[idx] = nums[idx], nums[i - 1]
                 
                 temp = nums[i:]
@@ -40,7 +40,7 @@ class Solution:
                 
         nums.reverse()
         
-nums = [1, 1, 5]
+nums = [1, 5, 1]
 Solution().nextPermutation(nums)
             
             
