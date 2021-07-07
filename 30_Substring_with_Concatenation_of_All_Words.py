@@ -6,7 +6,7 @@ Created on Tue Jul  6 19:52:21 2021
 @author: hienpham
 """
 class Solution:
-    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+    def findSubstring(self, s: str, words):
     # remove empty cases
         if not s or words==[]:
             return []  
@@ -60,9 +60,8 @@ class Solution:
                     res.append(str_start)
         return res
 
-s = "abbaccaaabcabbbccbabbccabbacabcacbbaabbbbbaaabaccaacbccabcbababbbabccabacbbcabbaacaccccbaabcabaabaaaabcaabcacabaa"
-words = ["cac","aaa","aba","aab","abc"]
-
+s = "barfoofoobarthefoobarman"
+words = ["bar","foo","the"]
 ans = Solution().findSubstring(s, words)
                 
             
