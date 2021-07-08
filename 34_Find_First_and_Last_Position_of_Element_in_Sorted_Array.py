@@ -37,7 +37,21 @@ class Solution:
                 
         return [first, last]
     
+    
+    def searchRange_v2(self, nums, target):
+        def search(lo, hi):
+            if nums[lo] == target == nums[hi]:
+                return [lo, hi]
+            if nums[lo] <= target <= nums[hi]:
+                mid = (lo + hi) // 2
+                l = search(lo, mid)
+                r = search(mid+1, hi)
+                return max(l, r) if -1 in l+r else [l[0], r[1]]
+            return [-1, -1]
+        return search(0, len(nums)-1)
+    
 
-nums = [1, 8, 8]
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 8, 8, 8, 10]
 target = 8
 ans = Solution().searchRange(nums, target)
+ans2 = Solution().searchRange_v2(nums, target)
