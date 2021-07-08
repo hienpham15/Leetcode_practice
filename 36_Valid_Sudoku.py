@@ -49,6 +49,27 @@ class Solution:
         
         return True
     
+    
+    def isValidSudoku_v2(self, board) -> bool:
+        def isSubBox(i,j,x,y):
+            if (i//3 == x//3) and (j//3 == y//3):
+                return True
+            return False
+            
+        hashtable = {}
+        for i in range(9):
+            for j in range(9):
+                num = board[i][j]
+                if num != ".":
+                    if num not in hashtable.keys():
+                        hashtable[num] = [(i,j)]
+                    else:
+                        for (x,y) in hashtable[num]:
+                            if x == i or y == j or isSubBox(i,j,x,y):
+                                return False
+                        hashtable[num] += [(i,j)]
+        return True
+    
 board =[[".",".",".",".","5",".",".","1","."],
         [".","4",".","3",".",".",".",".","."],
         [".",".",".",".",".","3",".",".","1"],
@@ -60,7 +81,7 @@ board =[[".",".",".",".","5",".",".","1","."],
         [".",".","4",".",".",".",".",".","."]]
 
 
-ans = Solution().isValidSudoku(board)
+ans = Solution().isValidSudoku_v2(board)
                 
             
             
