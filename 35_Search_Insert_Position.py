@@ -19,7 +19,7 @@ class Solution:
             else:
                 return mid 
         
-        return mid + 1
+        return high
     
 nums = [1, 3, 5, 6]
 target = 7
