@@ -13,7 +13,7 @@ class Solution:
             left_max = 0
             right_max = 0
             
-            for j in range(i, 0, -1):
+            for j in range(i, -1, -1):
                 left_max = max(left_max, height[j])
             
             for j in range(i, len(height)):
@@ -22,5 +22,5 @@ class Solution:
             ans += min(left_max, right_max) - height[i]
         return ans
     
-height = [0,1,0,2,1,0,1,3,2,1,2,1]
+height = [4, 2, 0, 3, 2, 5]
 ans = Solution().trap(height)    
