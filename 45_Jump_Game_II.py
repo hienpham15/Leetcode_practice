@@ -13,6 +13,9 @@ class Solution:
             n_step = len(path)
             d.update({n_step:path})
             return
+        elif idx > len(nums) - 1:
+            return
+        
         
         max_step = nums[idx]
         
@@ -28,5 +31,5 @@ class Solution:
         self.dp(0, nums, [], d)
         return min(d)
     
-nums = [2, 3, 1, 1, 4]
+nums = [2, 1]
 ans = Solution().jump(nums)
