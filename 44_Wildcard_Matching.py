@@ -9,6 +9,8 @@ class Solution:
     def dp(self, i, j, s, p):
         if i > len(s) - 1 and j > len(p) - 1:
             return True
+        if i > len(s) - 1 and j == len(p) - 1 and p[j] == "*":
+            return True
         elif i > len(s) - 1:
             return False
         elif j > len(p) - 1:
@@ -25,7 +27,7 @@ class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         return self.dp(0, 0, s, p)
     
-s = 'acccb'
+s = 'acdcb'
 p = 'a*c?b'
 ans = Solution().isMatch(s, p)
         
