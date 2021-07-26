@@ -27,7 +27,7 @@ class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         return self.dp(0, 0, s, p)
     
-s = 'acdcb'
-p = 'a*c?b'
+s = ''
+p = '*****'
 ans = Solution().isMatch(s, p)
         
